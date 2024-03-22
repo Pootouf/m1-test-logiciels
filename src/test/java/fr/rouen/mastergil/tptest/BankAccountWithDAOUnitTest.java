@@ -86,11 +86,19 @@ class BankAccountWithDAOUnitTest {
             throw new RuntimeException(e);
         }
         Mockito.when(dao.setUpConnection()).thenReturn(connection);
+        int expectedNumberOfCall = 1;
         //THEN
         assertThatExceptionOfType(SQLException.class).isThrownBy(
                 //WHEN
                 bankAccount::creerCompte
         );
+
+        try {
+            Mockito.verify(connection, Mockito.times(expectedNumberOfCall)).isReadOnly();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 

@@ -6,7 +6,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PrevisionTest {
+class PrevisionUnitTest {
 
     @Test
     public void shouldToStringReturnFormattedString() {
@@ -25,12 +25,12 @@ class PrevisionTest {
                 .setTempNight(tempNight)
                 .setDescription(description);
         String expectedResult = "Prevision{" +
-            "date=" + date +
-                    ", tempMin=" + tempMin +
-                    ", tempMax=" + tempMax +
-                    ", tempDay=" + tempDay +
-                    ", tempNight=" + tempNight +
-                    ", description='" + description + '\'' +
+            "date=" + prevision.getDate() +
+                    ", tempMin=" + prevision.getTempMin() +
+                    ", tempMax=" + prevision.getTempMax() +
+                    ", tempDay=" + prevision.getTempDay() +
+                    ", tempNight=" + prevision.getTempNight() +
+                    ", description='" + prevision.getDescription() + '\'' +
                     '}';
         //WHEN
         String result = prevision.toString();
