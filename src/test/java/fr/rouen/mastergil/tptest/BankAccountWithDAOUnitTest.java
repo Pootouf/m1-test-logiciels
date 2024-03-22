@@ -6,7 +6,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.net.ConnectException;
@@ -117,7 +116,7 @@ class BankAccountWithDAOUnitTest {
         String expectedResult = "Votre solde actuel est de "
                 + amount + " " + devise.name();
         //WHEN
-        String result = "";
+        String result;
         try {
             result = bankAccount.consulterSolde();
         } catch (SQLException | ConnectException e) {
