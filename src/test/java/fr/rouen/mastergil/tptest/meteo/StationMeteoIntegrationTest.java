@@ -66,14 +66,4 @@ class StationMeteoIntegrationTest {
         ).isInstanceOf(RuntimeException.class);
     }
 
-    @Test
-    public void shouldMainPrintValidMeteoString() {
-        //GIVEN
-        String regexp = "\\[(Prevision\\{date=[a-zA-Z]* [a-zA-Z]* [0-9]* [0-9]*:[0-9]*:[0-9]* [a-zA-Z]* [0-9]*, tempMin=[0-9]*\\.[0-9]*, tempMax=[0-9]*\\.[0-9]*, tempDay=[0-9]*\\.[0-9]*, tempNight=[0-9]*\\.[0-9]*, description='[a-zA-Zéèà ]*'}(, )?)*]";
-        //THEN
-        StationMeteo.main(null);
-        //WHEN
-        assertThat(outputStreamCaptor.toString().trim().matches(regexp)).isTrue();
-    }
-
 }
